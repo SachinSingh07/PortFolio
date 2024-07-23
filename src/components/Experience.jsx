@@ -16,13 +16,21 @@ function Experience() {
       <div className="">
         {EXPERIENCES.map((experience, index) => (
           <div className="mb-8 flex flex-wrap lg:justify-center" key={index}>
-            <div className="w-full lg:w-1/4">
+            <motion.div 
+             whileInView={{ opacity: 1, x: 0 }}
+             initial={{ opacity: 0, x: -100 }}
+             transition={{ duration: 1 }}
+            className="w-full lg:w-1/4">
               <h5 className="mb-2 font-semibold">{experience.role}</h5>
               <p className="mb-2 text-neutral-400">{experience.company}</p>
               <p className="mb-2 text-neutral-400">{experience.year}</p>
-            </div>
+            </motion.div>
 
-            <div className="w-full max-w-xl lg:w-3/4">
+            <motion.div 
+            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 100 }}
+            transition={{ duration: 1 }}
+            className="w-full max-w-xl lg:w-3/4">
               <ul className="list-disc pl-5 mb-4 text-neutral-400">
                 {experience.description.map((desc, i) => (
                   <li key={i}>{desc}</li>
@@ -38,7 +46,7 @@ function Experience() {
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         ))}
       </div>
